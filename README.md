@@ -1,4 +1,3 @@
-<img align="right" src=""C:\Users\pushp\OneDrive\Pictures\Pushpa.jpg"" width="350" />
 # Pushpa Priya Sripathi
 
 **Data Engineer | Azure | Databricks | Ab Initio | PySpark | SQL**
@@ -19,44 +18,61 @@ Currently pursuing a **Master of Science in Information Systems at the Universit
 
 ---
 
+## 🛠️ Core Data Engineering Skills
 
-## 🛠️ Core Data Engineering Skills  
-Here are the **most essential** technologies I use day‑to‑day:
+<p>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/databricks/databricks-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="40" />&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" />
+</p>
 
 - **Azure Cloud** (ADF, Synapse, ADLS)  
+- **Google Cloud Platform (GCP)** (Cloud Storage, BigQuery)  
 - **Databricks** (Delta Lake, PySpark, DLT, Unity Catalog)  
 - **Ab Initio** (high‑performance ETL pipelines)  
 - **SQL & Distributed Computing** (Spark SQL, optimized queries)  
-- **Python for ETL** (automation, transformations, ingestion workflows)  
+- **Python for ETL** (automation, transformations, ingestion workflows)
 
 ---
 
 ## 🔹 Featured Projects
 
 ### **Cincy CrimeWatch — Real-Time Crime Visualization**
+
+<div style="display:flex; gap:10px;">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="35"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="35"/>
+  <img src="https://img.shields.io/badge/Mapbox-000000?style=flat&logo=mapbox&logoColor=white" />
+</div>
+
 A full‑stack web application that displays real-time and historical Cincinnati crime data using Mapbox, geolocation APIs, and custom visualizations.  
-**Tech:** React, Node.js, REST APIs, Mapbox  
-🔗 **Live Site:** https://cincycrimewatch-cxcuctg5frh7fdh8.westus3-01.azurewebsites.net
+🔗 **Live Site:** https://cincycrimewatch-cxcuctg5frh7fdh8.westus3-01.azurewebsites.net  
 
 ---
 
 ### **Book Club Platform — .NET & EF Core**
+
+<div style="display:flex; gap:10px;">
+  <img src="https://img.shields.io/badge/.NET-512BD4?style=flat&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/EF%20Core-5C2D91?style=flat&logo=dotnet&logoColor=white" />
+</div>
+
 A full-stack platform built with .NET 8 and Razor Pages that supports book club creation, membership management, CRUD operations, and authentication.  
-**Tech:** .NET 8, EF Core, Razor Pages
 
 ---
 
 ### **YouTube Video Metadata Scraper**
-A scraping system that gathers structured metadata (titles, channels, timestamps, views) using Zapper, supported by system modeling diagrams (BPMN, Use Case, Class models).  
-**Tech:** Zapper, Python  
 
----
+<div style="display:flex; gap:10px;">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="35"/>
+  <img src="https://img.shields.io/badge/Scraper-6E6E6E?style=flat" />
+</div>
 
-## 🔹 Currently Learning & Exploring
-- Azure Cloud Architectures  
-- Advanced Databricks Workflows  
-- LLM-integrated data automation  
-- Full-stack development (.NET + React)  
+A scraping system that gathers structured metadata (titles, channels, timestamps, views) using Zapper, supported by system modeling diagrams (BPMN, Use Case, Class Models).  
 
 ---
 
