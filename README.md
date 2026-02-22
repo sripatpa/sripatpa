@@ -1,3 +1,4 @@
+<img align="right" src=""C:\Users\pushp\OneDrive\Pictures\Pushpa.jpg"" width="350" />
 # Pushpa Priya Sripathi
 
 **Data Engineer | Azure | Databricks | Ab Initio | PySpark | SQL**
@@ -18,33 +19,15 @@ Currently pursuing a **Master of Science in Information Systems at the Universit
 
 ---
 
-## 🔹 Technical Skills
 
-### **Data Engineering & ETL**
-- Databricks (Delta Lake, Auto Loader, DLT, Unity Catalog)  
-- Ab Initio  
-- Azure Data Factory  
-- Azure Synapse Analytics  
-- Azure Data Lake (ADLS)  
-- Microsoft Fabric
+## 🛠️ Core Data Engineering Skills  
+Here are the **most essential** technologies I use day‑to‑day:
 
-### **Programming**
-- Python  
-- PySpark / Spark SQL  
-- Unix / Shell Scripting  
-- C#, HTML, CSS  
-
-### **Databases**
-- Azure SQL  
-- SQL Server  
-- Oracle SQL  
-- MySQL  
-- Delta Tables  
-
-### **Tools & DevOps**
-- Git / GitHub  
-- Jira  
-- Microsoft Visio  
+- **Azure Cloud** (ADF, Synapse, ADLS)  
+- **Databricks** (Delta Lake, PySpark, DLT, Unity Catalog)  
+- **Ab Initio** (high‑performance ETL pipelines)  
+- **SQL & Distributed Computing** (Spark SQL, optimized queries)  
+- **Python for ETL** (automation, transformations, ingestion workflows)  
 
 ---
 
