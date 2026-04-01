@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pushpa Priya Sripathi — Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0f1e;
+    --bg2: #111827;
+    --bg3: #1a2235;
+    --card: #141d2e;
+    --border: rgba(99,179,237,0.15);
+    --accent: #63b3ed;
+    --accent2: #90cdf4;
+    --accent3: #4299e1;
+    --gold: #f6ad55;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --dim: #64748b;
+    --green: #68d391;
+    --purple: #b794f4;
+    --pink: #fc8181;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATED BG ── */
+  .bg-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(99,179,237,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,179,237,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .bg-orb {
+    position: fixed; border-radius: 50%; filter: blur(120px);
+    pointer-events: none; z-index: 0;
+  }
+  .orb1 { width: 600px; height: 600px; top: -200px; left: -200px; background: rgba(66,153,225,0.08); }
+  .orb2 { width: 500px; height: 500px; bottom: -100px; right: -100px; background: rgba(159,122,234,0.07); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem; color: var(--accent2); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 0.875rem;
+    font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── SECTIONS ── */
+  section { position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hero-content { max-width: 700px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(99,179,237,0.08); border: 1px solid rgba(99,179,237,0.2);
+    border-radius: 100px; padding: 6px 16px; margin-bottom: 2rem;
+    font-size: 0.8rem; color: var(--accent); font-weight: 500; letter-spacing: 0.06em;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05; margin-bottom: 1rem;
+    color: #fff;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem;
+    max-width: 560px; font-weight: 300; line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--accent2); font-weight: 500; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent3); color: #fff; padding: 0.75rem 1.75rem;
+    border-radius: 8px; text-decoration: none; font-weight: 600;
+    font-size: 0.9rem; transition: all 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1.75rem;
+    border-radius: 8px; text-decoration: none; font-weight: 500;
+    font-size: 0.9rem; transition: all 0.2s; background: transparent;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    padding-top: 2.5rem; border-top: 1px solid var(--border);
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--accent2); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--dim); margin-top: 4px; letter-spacing: 0.04em; }
+
+  /* ── SECTION WRAPPER ── */
+  .section-wrap {
+    max-width: 1200px; margin: 0 auto; padding: 5rem 4rem;
+  }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.14em; color: var(--accent);
+    font-weight: 600; margin-bottom: 0.75rem; text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem); color: #fff; margin-bottom: 3rem; line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p {
+    color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-weight: 300;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+  }
+  .about-card-title {
+    font-size: 0.7rem; letter-spacing: 0.12em; color: var(--dim);
+    text-transform: uppercase; margin-bottom: 1.25rem;
+  }
+  .info-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.875rem;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--dim); }
+  .info-val { color: var(--text); font-weight: 500; }
+  .badge-cpt {
+    background: rgba(104,211,145,0.1); border: 1px solid rgba(104,211,145,0.3);
+    color: var(--green); border-radius: 100px; padding: 3px 12px; font-size: 0.75rem; font-weight: 600;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: rgba(99,179,237,0.35); transform: translateY(-3px); }
+  .skill-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; margin-bottom: 1rem;
+  }
+  .skill-card-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 3px 10px; font-size: 0.75rem; color: var(--muted);
+  }
+  .tag.hot { background: rgba(99,179,237,0.08); border-color: rgba(99,179,237,0.2); color: var(--accent); }
+
+  /* ── EXPERIENCE ── */
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: linear-gradient(to bottom, var(--accent3), rgba(99,179,237,0.1));
+  }
+  .exp-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; }
+  .exp-dot {
+    position: absolute; left: -5px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--accent3); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(66,153,225,0.2);
+  }
+  .exp-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .exp-period {
+    font-size: 0.75rem; color: var(--dim); background: rgba(255,255,255,0.04);
+    border-radius: 100px; padding: 3px 12px; border: 1px solid rgba(255,255,255,0.07);
+  }
+  .exp-title { font-weight: 600; font-size: 1.05rem; color: var(--text); margin-bottom: 2px; }
+  .exp-company { font-size: 0.875rem; color: var(--accent); margin-bottom: 0.85rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.875rem; color: var(--muted); padding: 0.3rem 0 0.3rem 1rem;
+    position: relative; line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0; color: var(--accent3); font-size: 0.7rem; top: 5px;
+  }
+  .exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column;
+    gap: 1rem; transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent3), var(--purple));
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .project-card:hover { border-color: rgba(99,179,237,0.3); transform: translateY(-4px); }
+  .project-card:hover::before { opacity: 1; }
+  .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .project-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+  }
+  .project-date { font-size: 0.72rem; color: var(--dim); }
+  .project-title { font-weight: 600; font-size: 1rem; color: var(--text); line-height: 1.3; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; color: var(--accent); text-decoration: none;
+    font-weight: 500; transition: gap 0.15s;
+  }
+  .project-link:hover { gap: 10px; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: rgba(246,173,85,0.35); }
+  .cert-badge {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(246,173,85,0.1); border: 1px solid rgba(246,173,85,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .cert-name { font-weight: 600; font-size: 0.875rem; color: var(--text); margin-bottom: 3px; }
+  .cert-issuer { font-size: 0.78rem; color: var(--dim); }
+  .cert-status {
+    margin-left: auto; font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: 100px;
+  }
+  .cert-done { background: rgba(104,211,145,0.1); color: var(--green); border: 1px solid rgba(104,211,145,0.25); }
+  .cert-progress { background: rgba(246,173,85,0.1); color: var(--gold); border: 1px solid rgba(246,173,85,0.25); }
+
+  /* ── EDUCATION ── */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem; transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: rgba(99,179,237,0.3); }
+  .edu-school { font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 4px; }
+  .edu-degree { font-size: 0.875rem; color: var(--accent); margin-bottom: 4px; }
+  .edu-meta { font-size: 0.78rem; color: var(--dim); }
+  .edu-gpa {
+    display: inline-block; margin-top: 0.75rem;
+    background: rgba(99,179,237,0.08); border: 1px solid rgba(99,179,237,0.2);
+    color: var(--accent); border-radius: 100px; padding: 3px 12px; font-size: 0.75rem; font-weight: 600;
+  }
+
+  /* ── CONTACT ── */
+  .contact-wrap {
+    text-align: center; padding: 6rem 4rem;
+    max-width: 700px; margin: 0 auto;
+  }
+  .contact-desc { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; font-weight: 300; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); padding: 0.7rem 1.5rem; border-radius: 10px;
+    text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border); padding: 1.75rem 4rem;
+    text-align: center; color: var(--dim); font-size: 0.78rem; position: relative; z-index: 1;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .section-wrap { padding: 3rem 1.5rem; }
+    .about-grid, .edu-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .contact-wrap { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pushpa Priya</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-badge">Available for CPT · May 2026</div>
+    <h1>Data <em>Engineer</em><br/>& Pipeline Builder</h1>
+    <p class="hero-sub">
+      Building <strong>enterprise-scale ETL pipelines</strong> and Lakehouse architectures using
+      <strong>Databricks, PySpark, and Azure</strong>. 2+ years at Capgemini · MS Information Systems @ UC.
+    </p>
+    <div class="hero-ctas">
+      <a href="mailto:sripatpa@mail.uc.edu" class="btn-primary">&#9993; Get in Touch</a>
+      <a href="https://www.linkedin.com/in/pushpa-sripathi" target="_blank" class="btn-outline">&#128279; LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50M+</div>
+        <div class="stat-label">Records/Day Processed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Enterprise Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3.8</div>
+        <div class="stat-label">GPA · Univ. of Cincinnati</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<div id="about" class="section-wrap">
+  <div class="section-label">About</div>
+  <div class="section-title">Who I <em>Am</em></div>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I'm a <strong>Data Engineer</strong> with over two years of professional experience at Capgemini, where I built and optimized enterprise ETL pipelines processing 50M+ records daily across critical banking projects.</p>
+      <p>Currently pursuing my <strong>MS in Information Systems</strong> at the University of Cincinnati's Lindner College of Business, I'm deepening my expertise in <strong>Microsoft Fabric, Delta Lake, and cloud-native data architectures</strong>.</p>
+      <p>I'm passionate about turning raw, complex data into reliable, scalable pipelines that power real business decisions — from Medallion Architecture designs to real-time streaming with Auto Loader.</p>
+      <p>I'm actively seeking a <strong>Summer 2026 Data Engineering internship</strong> where I can contribute to production-grade data systems and continue growing as an engineer.</p>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-card-title">Quick Info</div>
+        <div class="info-row">
+          <span class="info-label">Location</span>
+          <span class="info-val">Cincinnati, OH</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Work Auth</span>
+          <span class="badge-cpt">F-1 CPT · May 2026</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Availability</span>
+          <span class="info-val">Summer 2026</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Email</span>
+          <span class="info-val" style="font-size:0.8rem;">sripatpa@mail.uc.edu</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Phone</span>
+          <span class="info-val">(513) 302-1698</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">LinkedIn</span>
+          <a href="https://linkedin.com/in/pushpa-sripathi" target="_blank" style="color: var(--accent); font-size:0.82rem; text-decoration:none;">pushpa-sripathi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<div id="skills" class="section-wrap">
+  <div class="section-label">Technical Skills</div>
+  <div class="section-title">My <em>Toolkit</em></div>
+  <div class="skills-grid fade-in">
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(99,179,237,0.1);">&#128200;</div>
+      <div class="skill-card-title">Data Engineering & ETL</div>
+      <div class="skill-tags">
+        <span class="tag hot">Databricks</span>
+        <span class="tag hot">Delta Lake</span>
+        <span class="tag hot">Microsoft Fabric</span>
+        <span class="tag">Auto Loader</span>
+        <span class="tag">Delta Live Tables</span>
+        <span class="tag">Unity Catalog</span>
+        <span class="tag">Ab Initio</span>
+        <span class="tag">ADLS Gen2</span>
+        <span class="tag">dbt</span>
+        <span class="tag">Snowflake</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(183,148,244,0.1);">&#128187;</div>
+      <div class="skill-card-title">Programming & Big Data</div>
+      <div class="skill-tags">
+        <span class="tag hot">PySpark</span>
+        <span class="tag hot">Python</span>
+        <span class="tag hot">Spark SQL</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Unix/Linux</span>
+        <span class="tag">Shell Scripting</span>
+        <span class="tag">C#</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(104,211,145,0.1);">&#9729;</div>
+      <div class="skill-card-title">Cloud & DevOps</div>
+      <div class="skill-tags">
+        <span class="tag hot">Microsoft Azure</span>
+        <span class="tag">Azure Data Factory</span>
+        <span class="tag">ADLS</span>
+        <span class="tag">Google Cloud Storage</span>
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(246,173,85,0.1);">&#128202;</div>
+      <div class="skill-card-title">Databases & Visualization</div>
+      <div class="skill-tags">
+        <span class="tag hot">Power BI</span>
+        <span class="tag">Azure SQL Database</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Microsoft Visio</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="section-wrap">
+  <div class="section-label">Experience</div>
+  <div class="section-title">Where I've <em>Worked</em></div>
+  <div class="exp-timeline fade-in">
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-meta">
+        <span class="exp-period">Mar 2023 – Jun 2025</span>
+      </div>
+      <div class="exp-title">Associate Consultant · Data Engineer</div>
+      <div class="exp-company">Capgemini Services Pvt Ltd</div>
+      <ul class="exp-bullets">
+        <li>Delivered ETL solutions across <strong>3+ enterprise banking projects</strong> (SEPA, FPP, BSBP), driving data accuracy improvements and reducing processing time.</li>
+        <li>Designed and implemented efficient ETL workflows in <strong>Ab Initio</strong>, transforming and consolidating complex datasets while optimizing performance and scalability.</li>
+        <li>Applied advanced data transformation techniques and processed <strong>50M+ records daily</strong> using partitioning and merging strategies, <strong>reducing pipeline runtime by 30%</strong>.</li>
+        <li>Oversaw version control and EME operations, ensuring seamless graph deployment; maintained DML and XFR configurations to meet evolving business requirements.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background: var(--purple);"></div>
+      <div class="exp-meta">
+        <span class="exp-period">Jan 2021 – Mar 2023</span>
+      </div>
+      <div class="exp-title">Software Developer</div>
+      <div class="exp-company">RAM Tech Software Solutions</div>
+      <ul class="exp-bullets">
+        <li>Built an <strong>ODS serving 5+ downstream systems</strong>, consolidating financial data for 10,000+ client accounts.</li>
+        <li>Designed relational database schemas and wrote complex <strong>SQL queries, stored procedures, and views</strong> to automate data transformation workflows.</li>
+        <li>Optimized SQL query performance through indexing strategies and query tuning, improving data retrieval speed for downstream systems.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<div id="projects" class="section-wrap">
+  <div class="section-label">Projects</div>
+  <div class="section-title">What I've <em>Built</em></div>
+  <div class="projects-grid fade-in">
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon" style="background:rgba(99,179,237,0.1);">&#128301;</div>
+        <span class="project-date">Mar 2026</span>
+      </div>
+      <div class="project-title">Enterprise Sales Lakehouse Pipeline</div>
+      <div class="project-desc">Built an end-to-end Lakehouse pipeline using Microsoft Fabric with Medallion Architecture (Bronze/Silver/Gold), ingesting structured sales data via Dataflow Gen2. Implemented Power BI dashboards for KPI monitoring including revenue trends and regional performance.</div>
+      <div class="project-tags">
+        <span class="tag hot">Microsoft Fabric</span>
+        <span class="tag">OneLake</span>
+        <span class="tag">Dataflow Gen2</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon" style="background:rgba(183,148,244,0.1);">&#9889;</div>
+        <span class="project-date">Mar 2026</span>
+      </div>
+      <div class="project-title">Real-Time ETL Pipeline</div>
+      <div class="project-desc">Built a scalable ETL pipeline using Databricks and PySpark with Medallion Architecture, leveraging Auto Loader for incremental ingestion and Spark SQL for optimized transformations. Implemented Delta tables with Time Travel for ACID compliance and audit recovery.</div>
+      <div class="project-tags">
+        <span class="tag hot">Databricks</span>
+        <span class="tag hot">PySpark</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">Auto Loader</span>
+        <span class="tag">Spark SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon" style="background:rgba(104,211,145,0.1);">&#128205;</div>
+        <span class="project-date">Dec 2025</span>
+      </div>
+      <div class="project-title">Cincy Crimewatch Web App</div>
+      <div class="project-desc">Developed an interactive crime data visualization app using React and Mapbox, integrating Cincinnati Open Data Portal and Crime Meter API for real-time heatmaps, dynamic filters, and neighborhood-level analytics. Deployed live on Azure.</div>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Mapbox</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Azure</span>
+      </div>
+      <a href="https://cincycrimewatch-cxcuctg5frh7fdh8.westus3-01.azurewebsites.net" target="_blank" class="project-link">View Live &#8594;</a>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- CERTIFICATIONS -->
+<div class="section-wrap">
+  <div class="section-label">Certifications</div>
+  <div class="section-title">My <em>Credentials</em></div>
+  <div class="certs-grid fade-in">
+    <div class="cert-card">
+      <div class="cert-badge">&#127942;</div>
+      <div>
+        <div class="cert-name">Databricks Accredited Fundamentals</div>
+        <div class="cert-issuer">Databricks · Feb 2026</div>
+      </div>
+      <span class="cert-status cert-done">Earned</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">&#128196;</div>
+      <div>
+        <div class="cert-name">Microsoft Fabric Analytics Engineer Associate</div>
+        <div class="cert-issuer">Microsoft · Expected Mar 2026</div>
+      </div>
+      <span class="cert-status cert-progress">In Progress</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">&#128196;</div>
+      <div>
+        <div class="cert-name">Databricks Certified Data Engineer Associate</div>
+        <div class="cert-issuer">Databricks · Expected Mar 2026</div>
+      </div>
+      <span class="cert-status cert-progress">In Progress</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- EDUCATION -->
+<div class="section-wrap">
+  <div class="section-label">Education</div>
+  <div class="section-title">My <em>Background</em></div>
+  <div class="edu-grid fade-in">
+    <div class="edu-card">
+      <div class="edu-school">University of Cincinnati</div>
+      <div style="font-size:0.78rem; color:var(--dim); margin-bottom:6px;">Carl H. Lindner College of Business</div>
+      <div class="edu-degree">MS in Information Systems</div>
+      <div class="edu-meta">Cincinnati, Ohio · 2025 – Dec 2026</div>
+      <div class="edu-gpa">GPA: 3.8</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">Jawaharlal Nehru Technological University</div>
+      <div style="font-size:0.78rem; color:var(--dim); margin-bottom:6px;">Kakinada, Andhra Pradesh, India</div>
+      <div class="edu-degree">B.Tech in Electrical & Electronics Engineering</div>
+      <div class="edu-meta">2016 – 2020</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-wrap fade-in">
+    <div class="section-label" style="text-align:center;">Contact</div>
+    <div class="section-title" style="text-align:center;">Let's <em>Connect</em></div>
+    <p class="contact-desc">I'm actively looking for Summer 2026 Data Engineering internship opportunities. Feel free to reach out — I'd love to chat!</p>
+    <div class="contact-links">
+      <a href="mailto:sripatpa@mail.uc.edu" class="contact-link">&#9993; sripatpa@mail.uc.edu</a>
+      <a href="tel:5133021698" class="contact-link">&#128222; (513) 302-1698</a>
+      <a href="https://www.linkedin.com/in/pushpa-sripathi" target="_blank" class="contact-link">&#128279; LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Pushpa Priya Sripathi · Data Engineer · Cincinnati, OH · Built with &#10084; for opportunities</p>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.fade-in');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+  document.querySelector('.hero .fade-in').classList.add('visible');
+</script>
+</body>
+</html>
